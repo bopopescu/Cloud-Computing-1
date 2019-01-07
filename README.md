@@ -9,10 +9,12 @@ All programming assignments in this course are targeted to the  python and flask
     1. Developing a web application using python and flask.
     2. Deploying and running your application on Amazon EC2.
     3. Experince working with AWS technologies: EC2, S3, CloudWatch, and Load Balancing.
+    4. Report for this assignment is avilable at:  https://github.com/farshadsafavi/Cloud-Computing/blob/master/Assignment1/Assignment1Report.pdf
 - Assignment2 provides some experience with: 
     1. Amazon technologies: Lambda, API Gateway, and Dynam
     2. All application data is persistently stored on DynamoDB and S3.
     3. The backend logic is implemented using Lambda functions.
+    4. Report for this assignment is avilable at:  https://github.com/farshadsafavi/Cloud-Computing/blob/master/Assignment2/Assignment2Report.pdf
 
 ## Final Project 
 Developed an android and web application which  track daily habits of students and persistently stored on DynamoDB and S3. Both mobile and web application share backend logic which is implemented using Lambda functions.
