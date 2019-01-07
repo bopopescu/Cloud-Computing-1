@@ -14,5 +14,5 @@ All programming assignments in this course are targeted to the  python and flask
     2. All application data is persistently stored on DynamoDB and S3.
     3. The backend logic is implemented using Lambda functions.
 
-## Issue 
+## Final Project 
 Developed an android and web application which  track daily habits of students and persistently stored on DynamoDB and S3. Both mobile and web application share backend logic which is implemented using Lambda functions.
