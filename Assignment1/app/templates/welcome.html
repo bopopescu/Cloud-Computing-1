@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <main class="hero-section">
+  <div>
+    <h2>Welcome!</h2>
+    <a href="{{ url_for('gridview') }}" class="btn-primary">View All Images</a>
+    <a href="{{ url_for('store') }}" class="btn-primary">Upload an Image</a>
+    <a href="{{ url_for('delete') }}" class="btn-primary">Clear Database!</a>
+  </div>
+  </main>
+
+{% endblock %}

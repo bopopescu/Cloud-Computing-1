@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+        <h2>Login Into The Account</h2>
+        {{error if error!= None}}
+        <form method='POST' action='login_submit'>
+
+            <div>
+                <label for ="username">Username:&nbsp </label>
+                <input id = "username" type='text' name='n1' value="{{ n1 if n1 != None }}">
+            </div>
+            <div>
+                <labelf or ="password">Password: &nbsp </label>
+                <input id= "password" type='password' name='n2' value="{{ n2 if n2 != None }}">
+            </div>
+            <div>
+                <input type='submit' value='log in'>
+            </div>
+        </form>
+    </div>
+
+  </main>
+
+{% endblock %}

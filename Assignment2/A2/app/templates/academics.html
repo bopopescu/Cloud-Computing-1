@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+      <h2 style = "text-align: center;">Academics</h2>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <div class="scrollmenu">
+        <a href="{{ url_for('welcome') }}">Home </a>
+        <a href="{{ url_for('contact') }}">Questionnaire </a>
+        <a href="{{ url_for('chart') }}">Analysis </a>
+        <a href="{{ url_for('academics') }}">Academics </a>
+        <a href="{{ url_for('physicals') }}">Physical </a>
+        <a href="{{ url_for('food') }}">Food</a>
+        <a href="{{ url_for('network') }}">Network</a>
+        <a href="{{ url_for('sleep') }}">Sleep</a>
+        <a href="{{ url_for('address') }}">Resources</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+
+      <form method="POST" action="academics">
+         <fieldset>
+            <legend>Questions</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
+               {{ form.study_1.label }}
+               {{ form.study_1 }}
+
+               {{ form.study_2.label }}
+               {{ form.study_2 }}
+
+               {{ form.study_3.label }}
+               {{ form.study_3 }}
+               <br>
+               <br>
+               {{ form.submit }}
+               <br>
+            </div>
+
+         </fieldset>
+      </form>
+
+    </div>
+
+  </main>
+
+
+{% endblock %}

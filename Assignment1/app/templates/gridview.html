@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+img
+{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 7px;
+    width: 150px;
+    height: 150px;
+}
+img:hover {
+    box-shadow: 0 0 4px 1px rgba(0, 140, 186, 0.5);
+}
+
+.thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 96%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+      }
+</style>
+
+    <div class="container">
+      <body>
+        <h2>Image Transformation</h2>
+
+        {% for urlx in imageurls %}
+        <div class="thumbnail">
+
+          <a href="{{ url_for('detail_view', im1 = urlx[1],im2 = urlx[2],im3 = urlx[3],im4 = urlx[4])}}" method='get' id="click">
+            <img src="{{ urlx[0] }}" alt="" />
+          </a>
+        </div>
+          <p>{{ urlx[1] }}</p>
+
+
+
+        {% endfor%}
+
+
+
+      </body>
+    </div>
+
+{% endblock %}

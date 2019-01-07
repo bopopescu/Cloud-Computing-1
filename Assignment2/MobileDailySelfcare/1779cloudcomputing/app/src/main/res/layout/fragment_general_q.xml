@@ -1,0 +1,182 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag = "general"
+    android:id = "@+id/general1"
+    tools:context="com.ece.j.a1779cloudcomputing.GeneralQ">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:text="You have completed today's general tracker! \n Submit again to overwrite your tracker!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/completed"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="@android:color/background_dark"
+                android:background="#FFFFFFFF"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:text="Please answer the following questions:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="How many hours do you spend during the day studying or in class on average?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/g1spinner" />
+
+            <TextView
+                android:text="How many minutes did you engage in light physical activity today? Ex. gardening, walking, etc."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:id="@+id/textView" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/g2">
+                <RadioButton
+                    android:id="@+id/g2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/q1a" />
+                <RadioButton
+                    android:id="@+id/g2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/q1b"/>
+                <RadioButton
+                    android:id="@+id/g2c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/q1c"/>
+                <RadioButton
+                    android:id="@+id/g2d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/q1d"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="How do you feel about what you had ate today?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/g3">
+                <RadioButton
+                    android:id="@+id/g3a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Satisfied" />
+                <RadioButton
+                    android:id="@+id/g3b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Just ok"/>
+                <RadioButton
+                    android:id="@+id/g3c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not happy"/>
+                <RadioButton
+                    android:id="@+id/g3d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help!"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="List the people you can talk to if you need help or to talk. How many people are they?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/g4">
+                <RadioButton
+                    android:id="@+id/g4a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+                <RadioButton
+                    android:id="@+id/g4b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"/>
+                <RadioButton
+                    android:id="@+id/g4c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"/>
+                <RadioButton
+                    android:id="@+id/g4d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2+"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="How many hours do you think you slept last night?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                />
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/g5spinner">
+            </Spinner>
+
+
+
+            <Button
+                android:text="Submit!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/g_match_button" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

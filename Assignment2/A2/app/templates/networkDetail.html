@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+      <h2 style = "text-align: center;">Network Detail Analysis</h2>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <div class="scrollmenu">
+        <a href="{{ url_for('welcome') }}">Home </a>
+        <a href="{{ url_for('contact') }}">Questionnaire </a>
+        <a href="{{ url_for('chart') }}">Analysis </a>
+        <a href="{{ url_for('academics') }}">Academics </a>
+        <a href="{{ url_for('physicals') }}">Physical </a>
+        <a href="{{ url_for('food') }}">Food</a>
+        <a href="{{ url_for('network') }}">Network</a>
+        <a href="{{ url_for('sleep') }}">Sleep</a>
+        <a href="{{ url_for('address') }}">Resources</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      <h2>Network Analysis:</h2>
+      <li>Your last submission: {{last_submission}} </li>
+      <li>The time difference between two last submissions: {{last_difference}} day(s).
+      <li>Based on your entries average time you communicate is approximately {{average}} per day!</li>
+      <li>Dates with no communication: {{outliers}}</li>
+      <li>{{pearson }}</li>
+      <h2>Network Tips:</h2>
+      {% for i in tips %}
+          <li>{{ i}}</li>
+      {% endfor %}
+      <h2>Network Detail Graph</h2>
+     <script src='static/js/Chart.min.js'></script>
+        <!-- bar chart canvas element --><canvas id="chart" width="1000" height="400"></canvas>
+        <script>
+           // bar chart data
+           var barData = {
+           labels : [{% for item in labels %}
+                          "{{item}}",
+                      {% endfor %}],
+           datasets : [
+              {
+                    fillColor: "rgba(206,81,78,0.2)",
+                    strokeColor: "rgba(206,81,78, 1)",
+                    pointColor: "rgba(206,81,78,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(206,81,78,1)",
+                    bezierCurve : false,
+                    data : [{% for item in values %}
+                              {{item}},
+                            {% endfor %}]
+              },
+              {
+                    fillColor: "rgba(206,81,78,0.1)",
+                    strokeColor: "rgba(0,0,0, 0.1)",
+                    pointColor: "rgba(F,F,F,1)",
+                    pointStrokeColor: "#FFF",
+                    pointHighlightFill: "FFF",
+                    pointHighlightStroke: "rgba(F,F,F,2)",
+                    bezierCurve : false,
+                    data : [{% for item in values1 %}
+                              {{item}},
+                            {% endfor %}]
+              }
+              ]
+           }
+           Chart.defaults.global.animationSteps = 50;
+           Chart.defaults.global.tooltipYPadding = 16;
+           Chart.defaults.global.tooltipCornerRadius = 0;
+           Chart.defaults.global.tooltipTitleFontStyle = "normal";
+           Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+           Chart.defaults.global.animationEasing = "easeOutBounce";
+           Chart.defaults.global.responsive = false;
+           Chart.defaults.global.scaleLineColor = "black";
+           Chart.defaults.global.scaleFontSize = 12;
+
+           // get bar chart canvas
+           var mychart = document.getElementById("chart").getContext("2d");
+
+           steps = 3
+           max = 3
+           // draw bar chart
+           var LineChartDemo = new Chart(mychart).Line(barData, {
+                scaleOverride: true,
+                scaleSteps: steps,
+                scaleStepWidth: Math.ceil(max / steps),
+                scaleStartValue: 0,
+                scaleShowVerticalLines: true,
+                scaleShowGridLines : true,
+                barShowStroke : true,
+                scaleShowLabels: true,
+                bezierCurve: false,
+
+           });
+
+          </script>
+
+          <li>0 : Zero communication!</li>
+          <li>1 : 1 hour communication</li>
+          <li>2 : 2 hours communication</li>
+          <li>3 : Plus 2 hours communication</li>
+    </div>
+  </main>
+
+
+{% endblock %}

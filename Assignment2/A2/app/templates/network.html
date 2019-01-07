@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+      <h2 style = "text-align: center;">Network</h2>
+      <div class="scrollmenu">
+        <a href="{{ url_for('welcome') }}">Home </a>
+        <a href="{{ url_for('contact') }}">Questionnaire </a>
+        <a href="{{ url_for('chart') }}">Analysis </a>
+        <a href="{{ url_for('academics') }}">Academics </a>
+        <a href="{{ url_for('physicals') }}">Physical </a>
+        <a href="{{ url_for('food') }}">Food</a>
+        <a href="{{ url_for('network') }}">Network</a>
+        <a href="{{ url_for('sleep') }}">Sleep</a>
+        <a href="{{ url_for('address') }}">Resources</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      <form method="POST" action="network">
+         <fieldset>
+            <legend>Questions</legend>
+            {{ form.hidden_tag() }}
+
+            <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
+               {{ form.network_1.label }}
+               {{ form.network_1 }}
+
+               <br>
+               <br>
+               {{ form.submit }}
+               <br>
+            </div>
+
+         </fieldset>
+      </form>
+
+    </div>
+  </main>
+
+
+{% endblock %}

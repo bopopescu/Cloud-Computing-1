@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+
+      <body>
+        <h2>Upload The Image</h2>
+        <form action="{{url_for('image_transform')}}"  enctype="multipart/form-data" method="post" onsubmit="return validateForm()">
+
+          What is the image files to upload? <input type="file" name="image_file"><br />
+
+          <input type="submit" value="Send">
+          <input type="reset">
+        </form>
+      </body>
+      </div>
+  </main>
+{% endblock %}

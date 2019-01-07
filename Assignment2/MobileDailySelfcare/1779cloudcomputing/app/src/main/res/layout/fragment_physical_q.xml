@@ -1,0 +1,144 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ece.j.a1779cloudcomputing.Physical_q">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:text="Please answer the following questions:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="How many minutes were you engaged in moderate or vigorous physical activity?(Ex. Watching t.v., studying, spent on the computer?)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:id="@+id/p1" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/p2">
+                <RadioButton
+                    android:id="@+id/p2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0-15" />
+                <RadioButton
+                    android:id="@+id/p2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15-30"/>
+                <RadioButton
+                    android:id="@+id/p2c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30-60"/>
+                <RadioButton
+                    android:id="@+id/p2d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60+"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="How many hours did you spend inactive?(Ex. Watching t.v., studying, spent on the computer)?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/p3"
+                >
+                <RadioButton
+                    android:id="@+id/p3a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0-15" />
+                <RadioButton
+                    android:id="@+id/p3b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1-2"/>
+                <RadioButton
+                    android:id="@+id/p3c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2-4"/>
+                <RadioButton
+                    android:id="@+id/p3d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4+"/>
+            </RadioGroup>
+
+            <TextView
+                android:text="How satisfied are you with your exercise level today? ?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/p4"
+
+                >
+                <RadioButton
+                    android:id="@+id/p4a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Satisfied" />
+                <RadioButton
+                    android:id="@+id/p4b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Just Ok"/>
+                <RadioButton
+                    android:id="@+id/p4c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Happy"/>
+                <RadioButton
+                    android:id="@+id/p4d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help!"/>
+            </RadioGroup>
+
+
+            <Button
+                android:text="Submit!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/p_sub" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

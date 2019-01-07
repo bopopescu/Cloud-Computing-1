@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+        <h2>Create a New Account</h2>
+        {{error_msg if error_msg!= None}}
+        <form method='POST' action='signup_submit'>
+
+            <div>
+                <label for ="username">Username:</label>
+                <input id = "username" type='text' name='n1' value="{{ n1 if n1 != None }}">
+            </div>
+            <div>
+                <label for ="password">Password:</label>
+                <input id= "password" type='text' name='n2' value="{{ n2 if n2 != None }}">
+            </div>
+            <div>
+                <input type='submit' value='Create Account'>
+            </div>
+        </form>
+    </div>
+  </main>
+
+{% endblock %}

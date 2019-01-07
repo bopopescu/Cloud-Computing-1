@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="hero-section">
+    <div class="container">
+      <h2 style = "text-align: center;">Analysis</h2>
+      <div class="scrollmenu">
+        <a href="{{ url_for('welcome') }}">Home </a>
+        <a href="{{ url_for('contact') }}">Questionnaire </a>
+        <a href="{{ url_for('chart') }}">Analysis </a>
+        <a href="{{ url_for('academics') }}">Academics </a>
+        <a href="{{ url_for('physicals') }}">Physical </a>
+        <a href="{{ url_for('food') }}">Food</a>
+        <a href="{{ url_for('network') }}">Network</a>
+        <a href="{{ url_for('sleep') }}">Sleep</a>
+        <a href="{{ url_for('address') }}">Resources</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      <table style="width:100%">
+        <td>
+          <h2>Academics</h2>
+          <script src='static/js/Chart.min.js'></script>
+          <!-- bar chart canvas element --><canvas id="chart" width="400" height="200"></canvas>
+          <script>
+             // bar chart data
+             var barData = {
+             labels : [{% for item in labels %}
+                            "{{item}}",
+                        {% endfor %}],
+             datasets : [
+                {
+                      fillColor: "rgba(106,63,134,0.2)",
+                      strokeColor: "rgba(106,63,134,1)",
+                      pointColor: "rgba(106,63,134,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(106,63,134,1)",
+                      bezierCurve : false,
+                      data : [{% for item in values %}
+                                {{item}},
+                              {% endfor %}]
+                }]
+             }
+             Chart.defaults.global.animationSteps = 50;
+             Chart.defaults.global.tooltipYPadding = 16;
+             Chart.defaults.global.tooltipCornerRadius = 0;
+             Chart.defaults.global.tooltipTitleFontStyle = "normal";
+             Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+             Chart.defaults.global.animationEasing = "easeOutBounce";
+             Chart.defaults.global.responsive = false;
+             Chart.defaults.global.scaleLineColor = "black";
+             Chart.defaults.global.scaleFontSize = 12;
+
+             // get bar chart canvas
+             var mychart = document.getElementById("chart").getContext("2d");
+
+             steps = 9
+             max = 9
+             // draw bar chart
+             var LineChartDemo = new Chart(mychart).Line(barData, {
+                  scaleOverride: true,
+                  scaleSteps: steps,
+                  scaleStepWidth: Math.ceil(max / steps),
+                  scaleStartValue: 0,
+                  scaleShowVerticalLines: true,
+                  scaleShowGridLines : true,
+                  barShowStroke : true,
+                  scaleShowLabels: true,
+                  bezierCurve: false,
+
+             });
+
+          </script>
+          <form method='POST' action='academics_detail'>
+            <div>
+                <input type='submit' value='Academics Detail'>
+            </div>
+          </form>
+
+        </td>
+        <td>
+          <h2>Physical Activity</h2>
+          <script src='static/js/Chart.min.js'></script>
+          <!-- bar chart canvas element -->
+          <canvas id="chart1" width="400" height="200"></canvas>
+          <script>
+             // bar chart data
+             var barData = {
+             labels : [{% for item in labels1 %}
+                            "{{item}}",
+                        {% endfor %}],
+             datasets : [
+                {
+                      fillColor: "rgba(237, 125, 49,0.2)",
+                      strokeColor: "rgba(237, 125, 49,1)",
+                      pointColor: "rgba(237, 125, 49, 1)",
+                   data : [{% for item in values1 %}
+                                {{item}},
+                              {% endfor %}]
+                }
+                ]
+             }
+
+             // get bar chart canvas
+             var mychart1 = document.getElementById("chart1").getContext("2d");
+
+             steps = 3
+             max = 3
+             // draw bar chart
+             new Chart(mychart1).Bar(barData, {
+                  scaleOverride: true,
+                  scaleSteps: steps,
+                  scaleStepWidth: Math.ceil(max / steps),
+                  scaleStartValue: 0,
+                  scaleShowVerticalLines: true,
+                  scaleShowGridLines : true,
+                  barShowStroke : true,
+                  scaleShowLabels: true
+             });
+          </script>
+          <form method='POST' action='physicals_detail'>
+            <div>
+                <input type='submit' value='Physicals Detail'>
+            </div>
+          </form>
+
+        </td>
+      </table>
+      <table style="width:100%">
+          <td>
+            <h2>Nutrition</h2>
+            <script src='static/js/Chart.min.js'></script>
+            <!-- bar chart canvas element -->
+            <canvas id="chart2" width="400" height="200"></canvas>
+            <script>
+               // bar chart data
+               var barData = {
+               labels : [{% for item in labels2 %}
+                              "{{item}}",
+                          {% endfor %}],
+               datasets : [
+                  {
+                        fillColor: "rgba(112,173, 71,0.2)",
+                        strokeColor: "rgba(112,173, 71, 1)",
+                        pointColor: "rgba(112,173, 71, 1)",
+                     data : [{% for item in values2 %}
+                                  {{item}},
+                                {% endfor %}]
+                  }
+                  ]
+               }
+
+               // get bar chart canvas
+               var mychart2 = document.getElementById("chart2").getContext("2d");
+
+               steps = 3
+               max = 3
+               // draw bar chart
+               new Chart(mychart2).Bar(barData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines : true,
+                    barShowStroke : true,
+                    scaleShowLabels: true
+               });
+            </script>
+            <form method='POST' action='nutrition_detail'>
+            <div>
+                <input type='submit' value='Nutrition Detail'>
+            </div>
+          </form>
+          </td>
+                  <td>
+            <h2>Network</h2>
+            <script src='static/js/Chart.min.js'></script>
+            <!-- bar chart canvas element -->
+            <canvas id="chart3" width="400" height="200"></canvas>
+            <script>
+               // bar chart data
+               var barData = {
+               labels : [{% for item in labels3 %}
+                              "{{item}}",
+                          {% endfor %}],
+               datasets : [
+                  {
+                        fillColor: "rgba(206,81,78, 0.2)",
+                        strokeColor: "rgba(206,81,78,1)",
+                        pointColor: "rgba(206,81,78,1)",
+                     data : [{% for item in values3 %}
+                                  {{item}},
+                                {% endfor %}]
+                  }
+                  ]
+               }
+
+               // get bar chart canvas
+               var mychart3 = document.getElementById("chart3").getContext("2d");
+
+               steps = 3
+               max = 3
+               // draw bar chart
+               new Chart(mychart3).Bar(barData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines : true,
+                    barShowStroke : true,
+                    scaleShowLabels: true
+               });
+            </script>
+            <form method='POST' action='network_detail'>
+            <div>
+                <input type='submit' value='Network Detail'>
+            </div>
+            </form>
+          </td>
+      </table>
+      </table>
+      <table style="width:100%">
+          <td>
+            <h2>Sleep</h2>
+            <script src='static/js/Chart.min.js'></script>
+            <!-- bar chart canvas element -->
+            <canvas id="chart4" width="400" height="200"></canvas>
+            <script>
+               // bar chart data
+               var barData = {
+               labels : [{% for item in labels4 %}
+                              "{{item}}",
+                          {% endfor %}],
+              datasets : [
+                {
+                      fillColor: "rgba(46,117,182,0.2)",
+                      strokeColor: "rgba(46,117,182,1)",
+                      pointColor: "rgba(46,117,182,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(46,117,182,1)",
+                      bezierCurve : false,
+                      data : [{% for item in values4 %}
+                                {{item}},
+                              {% endfor %}]
+                }]
+              }
+              Chart.defaults.global.animationSteps = 50;
+              Chart.defaults.global.tooltipYPadding = 16;
+              Chart.defaults.global.tooltipCornerRadius = 0;
+              Chart.defaults.global.tooltipTitleFontStyle = "normal";
+              Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+              Chart.defaults.global.animationEasing = "easeOutBounce";
+              Chart.defaults.global.responsive = false;
+              Chart.defaults.global.scaleLineColor = "black";
+              Chart.defaults.global.scaleFontSize = 12;
+
+               // get bar chart canvas
+               var mychart4 = document.getElementById("chart4").getContext("2d");
+
+               steps = 9
+               max = 9
+               // draw bar chart
+               var LineChartDemo = new Chart(mychart4).Line(barData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines : true,
+                    barShowStroke : true,
+                    scaleShowLabels: true,
+                    bezierCurve: false,
+
+               });
+            </script>
+             <form method='POST' action='sleep_detail'>
+            <div>
+                <input type='submit' value='Sleep Detail'>
+            </div>
+            </form>
+
+          </td>
+      </table>
+
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,73 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ece.j.a1779cloudcomputing.food_q">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:text="Please answer the following questions:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp" />
+
+            <TextView
+                android:text="What are your barriers to achieving a satisfying diet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:id="@+id/f1" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/f2">
+                <RadioButton
+                    android:id="@+id/f2a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No time" />
+                <RadioButton
+                    android:id="@+id/f2b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Can not cook"/>
+                <RadioButton
+                    android:id="@+id/f2c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not enough money"/>
+                <RadioButton
+                    android:id="@+id/f2d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I am not sure how to eat healthy!"/>
+            </RadioGroup>
+
+
+
+            <Button
+                android:text="Submit!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/f_sub" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

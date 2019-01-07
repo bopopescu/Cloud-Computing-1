@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet'>
+        <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ url_for('static', filename='flot/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='flot/jquery.flot.js') }}"></script>
+        <title>{{title}}</title>
+
+    </head>
+    <body>
+        <header>
+            <div class="container">
+             <h1 class="title">Assignment1</h1>
+            </div>
+        </header>
+        <h1>{{title}}</h2>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

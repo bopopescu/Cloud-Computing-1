@@ -1,0 +1,103 @@
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        header {
+          background-color: #fff;
+          padding: 25px 0;
+        }
+
+        .title {
+          float: left;
+          font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+          font-size: 17px;
+          letter-spacing: 2.5px;
+          text-transform: uppercase;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        .catagory-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .catagory-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+          $('.catagory-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+    {% extends "base.html" %}
+    {% block content %}
+
+     <main class="hero-section">
+     <div class="container">
+
+
+    <h2>Welcome {{user}}!</h2>
+    <div class="scrollmenu">
+        <a href="{{ url_for('welcome') }}">Home </a>
+        <a href="{{ url_for('contact') }}">Questionnaire </a>
+        <a href="{{ url_for('chart') }}">Analysis </a>
+        <a href="{{ url_for('academics') }}">Academics </a>
+        <a href="{{ url_for('physicals') }}">Physical </a>
+        <a href="{{ url_for('food') }}">Food</a>
+        <a href="{{ url_for('network') }}">Network</a>
+        <a href="{{ url_for('sleep') }}">Sleep</a>
+        <a href="{{ url_for('address') }}">Resources</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+
+    <div class="col-md-6 col-lg-4 catagory-tile text-center">
+        <a href="{{ url_for('contact') }}">
+            <img src="static/img/Questionaire2.png" width="220" height="342">
+        </a>
+        <h2>Questionnaire</h2>
+    </div>
+
+    <div class="col-md-6 col-lg-4 catagory-tile text-center">
+        <a href="{{ url_for('chart') }}">
+            <img src="static/img/trends.png" width="220" height="342">
+        </a>
+        <h2>Trends</h2>
+    </div>
+    <div class="col-md-6 col-lg-4 catagory-tile text-center" >
+        <a href="{{ url_for('address') }}">
+            <img src="static/img/resources1.png" width="220" height="342">
+        </a>
+        <h2>Resources</h2>
+    </div>
+
+    </div>
+
+  </div>
+
+
+  </main>
+
+{% endblock %}
